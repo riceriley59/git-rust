@@ -22,8 +22,15 @@ pub enum CLICommand {
         write: bool,
         filename: String,
     },
+
+    LsTree {
+        #[clap(long)]
+        name_only: bool,
+        tree_hash: String,
+    },
 }
 
 pub enum Kind {
     Blob,
+    Tree,
 }

@@ -1,5 +1,5 @@
-mod command;
 mod cli;
+mod command;
 
 use clap::Parser;
 use cli::{ Args, CLICommand };
@@ -26,6 +26,13 @@ fn main() -> Result<()> {
             filename
         } => {
             command::hash_object(filename, write)?;
+        }
+
+        CLICommand::LsTree {
+            name_only,
+            tree_hash
+        } => {
+            command::ls_tree(tree_hash, name_only)?;
         }
     }
 
